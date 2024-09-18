@@ -277,8 +277,16 @@ open class SVGParser {
                let filterId = parseIdFromUrl(filterString),
                let effect = defEffects[filterId] {
                 result.effect = effect
+                
+                result.dataAttributes = element
+                    .allAttributes
+                    .filter { $0.key.starts(with: "data") }
+                    .map {
+                        (key: $0.key, value: $0.value.text)
+                    }
             }
         }
+        
         return result
     }
 

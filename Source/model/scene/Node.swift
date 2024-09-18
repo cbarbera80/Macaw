@@ -3,6 +3,7 @@ import Foundation
 open class Node: Drawable {
 
     public let placeVar: AnimatableVariable<Transform>
+    var dataAttributes: [(key: String, value: String)]?
     open var place: Transform {
         get { return placeVar.value }
         set(val) { placeVar.value = val }
